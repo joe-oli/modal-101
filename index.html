@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title>Modal-Demo</title>
+ 
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen" /> -->
+ 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" media="screen" href="css/custom.css" />
+    <!-- to stop the annonying message: Failed to load resource: the server responded with a status of 404 (Not Found) - favicon.ico
+        use the below url instead of a real file favicon.ico; 
+    -->
+    <link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII=" rel="icon" type="image/x-icon" />
+</head>
+<body>
+ 
+    <!-- container -->
+    <div class="container">
+ 
+        <!-- once component mounts, hide this i.e. in componentDidMount of index.js, remove this from DOM? or make invisible?-->
+        <div class="page-header"> 
+            <h1>loading...</h1>
+        </div>
+ 
+        <!-- placeholder for root component mount point -->
+        <div id='divMountPoint'></div>
+    </div>
+    <!-- /container -->
+ 
+    <!-- DOWNLOAD all libs, and ref locally to avoid requiring internet -->
+
+    <!-- react js older c.2017
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.min.js"></script>
+    -->
+    <!-- react latest as at oct 2018
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.4.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.2/umd/react-dom.production.min.js"></script>
+	-->
+	<!-- react latest as at nov/dec 2018 -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.6.3/umd/react.production.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.6.3/umd/react-dom.production.min.js"></script> -->
+
+    <script src="libs/react-16.6.3/umd/react.production.min.js"></script>
+	<script src="libs/react-dom-16.6.3/umd/react-dom.production.min.js"></script>
+
+    
+    <!-- babel for on-the-fly transpiling in browser -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.1.19/browser.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script> -->
+    <!-- *** NOTE *** You will get a CORS error if accessing as a file, instead of serving from a server.. i.e. file:/// instead of http:// 
+        this is because it is babel loading the index.js file referenced below <script type='text/babel'... etc; 
+        To repeat, it is NOT the browser loading the file, it is the babel script using the Xhr Object; which does NOT support file:///
+        thus you need to serve the app, any minimal server will do. e.g. 'npm install -g http-server'
+    -->
+    <script src="libs/babel-standalone-6.26.0/babel.min.js"></script>
+    <!-- <script src="./libs/babel-standalone-6.26.0/babel.js" 		charset="utf-8" crossorigin="anonymous"></script> -->
+
+
+    <!-- additional libs: modal -->
+    <!-- <script src="https://unpkg.com/react-modal@1.6.2/dist/react-modal.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react-modal/3.6.1/react-modal.min.js"></script> -->
+    <script src="libs/react-modal-3.6.1/react-modal.min.js"></script>
+    
+
+    
+
+    <!-- load your CUSTOM react code last... entry point 
+	NOTE** type is babel, it's not plain JS; the Browser does not load this file, it is actually babel that loads this file, 
+	and converts it from ES6to5, and react/react-dom converts the JSX syntax to plain JS-->
+    <script type="text/babel" src="index.js"></script>
+</body>
+</html>
